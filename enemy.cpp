@@ -1,10 +1,6 @@
-#pragma once
-
-#include <iostream>
-#include <string>
 #include "enemy.h"
 
-enemy::enemy(string name, int str, int def, int hp, int diff, int enemyID, int hit) :
+enemy::enemy(std::string name, int str, int def, int hp, int diff, int enemyID, int hit) :
     name(name),
     str(str),
     def(def),
@@ -17,10 +13,10 @@ enemy::enemy(string name, int str, int def, int hp, int diff, int enemyID, int h
 }
 
 int enemy::getHit() {
-    return hit;
+    return hitChance;
 }
 
-string enemy::getName() {
+std::string enemy::getName() {
     return name;
 }
 
@@ -33,8 +29,34 @@ double enemy::giveXP() {
 }
 
 int enemy::attack(int defence) {
-    int attackPoints;
-    attackPoints = (str + diffclty) - defence;
+    int attackDmg;
+    attackDmg = (str + diffclty) - defence;
 
-    if (attackPoints)
+    if (attackDmg <= 0){
+        std::cout << "You missed!" << std::endl;
+    } else {
+        std::cout << "You hit for " << attackDmg << std::endl;
+    }
+    return attackDmg;
+}
+
+void enemy::defend(int attacker){
+    if (def == attacker) { std::cout << "The hit grazed the enemy for 1 dmg."; hp--; }
+    if (def > attacker) {
+        std::cout << "The attack was blocked!" << std::endl;
+    } else {
+        std::cout << "The attack hit successfully! It did " << (attacker - diffclty) << " damage!" << std::endl;
+    }
+}
+
+int enemy::getDiff() {
+    return diffclty;
+}
+
+int enemy::getStr(){
+    return str;
+}
+
+int enemy::getDef(){
+    return def;
 }

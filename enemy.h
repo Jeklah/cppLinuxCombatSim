@@ -8,16 +8,17 @@
 
 class enemy{
     private:
-        string name;
+        std::string name;
         int def;
         int hp;
+        int str;
         int diffclty;
         int enemyID;
         int hitChance;
 
     public:
-        enemy(string name, int str, int def, int hp, int diff, int enemyID, int hit);
-        string getName();
+        enemy(std::string name, int str, int def, int hp, int diff, int enemyID, int hit);
+        std::string getName();
         int attack(int defence);
         int getHP();
         void defend(int attacker);
