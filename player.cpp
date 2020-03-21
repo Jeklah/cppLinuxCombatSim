@@ -52,10 +52,10 @@ int player::getDef() {
 }
 
 int player::getInvSize() {
-    return playersInv->getInvSize();
+    return *playersInv->getInvSize();
 }
 
-void player::createInv(itemTable* itemsTable, int invSize) {
+inventory player::createInv(itemTable* itemsTable, int invSize) {
     playersInv = new inventory(itemsTable, invSize);
 }
 
@@ -63,21 +63,21 @@ void player::setClass(int classChoice) {
     switch (classChoice) {
         case 1:
             {
-                class = "Warrior";
+                clss = "Warrior";
                 classID = 1;
             }
             break;
 
         case 2:
             {
-                class = "Ranger";
+                clss = "Ranger";
                 classID = 2;
             }
             break;
 
         case 3:
             {
-                class = "Wizard";
+                clss = "Wizard";
                 classID = 3;
             }
             break;
@@ -103,4 +103,8 @@ void player::setDef(int classChoice) {
             }
             break;
     }
+}
+
+int player::getClassID() {
+    return player::classID;
 }
