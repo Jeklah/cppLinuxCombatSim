@@ -38,11 +38,11 @@ void inventory::printItem(std::ostream& _ostream, int _id) {
     int mainStat = theItemTable->getItem(id)->getMainStat();
     int offStat = theItemTable->getItem(id)->getOffStat();
     int minorStat = theItemTable->getItem(id)->getMinorStat();
-    string itemName = theItemTable->getItem(id)->getName();
+    std::string itemName = theItemTable->getItem(id)->getName();
 
     // move formatting to a seperate file once it is all
     // converted
-    string vertSpcPadding = "               ";
+    std::string vertSpcPadding = "               ";
 
     _ostream << "Name     :" << itemName << "\n";
     _ostream << vertSpcPadding << "ID        : " << id << "\n";
