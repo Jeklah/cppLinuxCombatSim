@@ -12,8 +12,8 @@ class inventory {
         int size;
         int usedSize;
         int freeSize;
-        vector<int> invIndex;
-        itemTable* theItemTable;i
+        std::vector<int> invIndex;
+        itemTable* theItemTable;
 
     public:
         inventory(itemTable* _itemTable, int _startingSize);
